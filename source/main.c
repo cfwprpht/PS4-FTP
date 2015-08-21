@@ -80,7 +80,7 @@ int _main(void) {
 	sceNetListen(server, 10);
 	
 	while(1) {
-		sceNetAccept(server, &clientAddress, &clientLength);
+		client = sceNetAccept(server, &clientAddress, &clientLength);
 		sceNetRecv(client, buffer, bufferSize, 0);
 		sceNetSend(client, buffer, bufferSize, 0);
 		sceNetSocketClose(client);
